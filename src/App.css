@@ -1,0 +1,150 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:regular,500,600,700&display=swap');
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  --first-color: #313131;
+  --first-color-gray: #ececec;
+  --progress-color-light: #dcdcdc;
+  --progress-color: #10b46a;
+  --progress-color-red: #cd3c3c;
+  --progress-color-yellow: #e6a335;
+  --text-color: #000;
+  --text-color-light: #fff;
+  --body-color: #fff;
+
+  /*========== Font==========*/
+  --body-font: 'Poppins', sans-serif;
+  --font-bold: 700;
+  --font-black: 900;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body,
+button,
+input {
+    font-family: var(--body-font);
+}
+
+body {
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+h1, h2, h3 {
+    color: var(--text-color);
+    font-weight: var(--font-bold);
+}
+
+ul {
+    list-style: none;
+}
+
+/* ===============-REUSABLE CSSS CLASSES-=========================== */
+.container {
+    max-width: 1124px;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+}
+
+.section {
+    padding: 0 1.5rem;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+}
+
+.btn {
+    display: inline-block;
+    border-radius: .5rem;
+    background-color: var(--first-color);
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: var(--text-color-light);
+    border: none;
+    transition: all .4s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    color: var(--text-color);
+    background-color: var(--first-color-gray);
+    border: 1px solid var(--first-color);
+}
+
+/* ===============-HEADER-=========================== */
+.heading {
+    margin: 1rem auto 0;
+    justify-content: space-between;
+}
+/* ===============-ACCOUNT-=========================== */
+.card {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    justify-content: flex-start;
+    margin: 1rem auto;
+}
+.card__body {
+    background-color: var(--first-color-gray);
+    border-radius: .75rem;
+    padding: 1rem;
+}
+.card__body-header {
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+}
+.card__body-probability {
+    font-size: 1.25rem;
+    color: var(--first-color);
+    font-weight: var(--font-black);
+}
+.card__body-progress {
+    background-color: var(--progress-color-light);
+    width: 100%;
+    height: 20px;
+    overflow: hidden;
+    justify-content: flex-start;
+    border-radius: 1rem;
+}
+.card__body-progressbar {
+    width: 20%;
+    height: 20px;
+    border-radius: 1rem;
+    background-color: var(--progress-color);
+}
+.card__body-btn {
+    padding-top: 0.75rem;
+    gap: 1rem;
+}
+/* ===============-RESPONSIVE-=========================== */
+@media screen and (max-width: 1150px) {
+    .heading {
+        padding: 0 1.25rem;
+    }
+}
+
+@media screen and (max-width: 678px) {
+    .section {
+        padding: .5rem;
+    }
+    .heading__title {
+        font-size: 1.35rem;
+    }
+}
