@@ -21,7 +21,7 @@ function AddAccount({show, handleClose}) {
                 <input type={"number"} id="max" min={'0'} step="0.01" className='form__body-control' required/>
               </div>
               <div className="form__body-btn">
-                <button className='btn' >Добавить</button>
+                <button className='btn'>Добавить</button>
               </div>
             </div>
         </form>

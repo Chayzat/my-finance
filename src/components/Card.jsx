@@ -1,6 +1,6 @@
 import React from "react";
 
-function Card({onSetShowAddExpense, onSetViewExpense}) {
+function Card({onSetShowAddExpense, onSetViewExpense, hideButtons}) {
   return (
     <div className="card__body">
       <div className="card__body-header flex">
@@ -12,7 +12,8 @@ function Card({onSetShowAddExpense, onSetViewExpense}) {
       <div className="card__body-progress flex">
         <div className="card__body-progressbar"></div>
       </div>
-      <div className="card__body-btn flex">
+      {!hideButtons && (
+        <div className="card__body-btn flex">
         <button
           className="card__body-add btn"
           onClick={onSetShowAddExpense}
@@ -26,6 +27,8 @@ function Card({onSetShowAddExpense, onSetViewExpense}) {
           Посмотреть
         </button>
       </div>
+      )}
+
     </div>
   );
 }
