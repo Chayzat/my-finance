@@ -3,6 +3,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 function ViewExpense({show, handleClose}) {
   return (
+    <div className={`wrapper ${show ? "show" : "hide"}`}>
     <div className={`form__container container center ${show ? "show" : "hide"}`}>
       <form className="form">
         <div className="form__heading flex">
@@ -34,6 +35,7 @@ function ViewExpense({show, handleClose}) {
           </div>
         </div>
       </form>
+    </div>
     </div>
   );
 }

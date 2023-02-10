@@ -3,8 +3,9 @@ import {AiOutlineClose} from 'react-icons/ai'
 
 function AddAccount({show, handleClose}) {
   return (
-    <div className={`form__container container center ${show ? "show" : "hide"}`}>
-        <form className='form'>
+    <div className={`wrapper ${show ? "show" : "hide"}`}>
+        <div className={`form__container container center ${show ? "show" : "hide"}`}>
+      <form className='form'>
             <div className="form__heading flex">
                 <h3 className="form__heading-title">Новая категория</h3>
                 <button onClick={handleClose} className="form__heading-btn close-btn">
@@ -25,6 +26,7 @@ function AddAccount({show, handleClose}) {
               </div>
             </div>
         </form>
+      </div>
     </div>
   )
 }
