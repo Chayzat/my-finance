@@ -6,8 +6,8 @@ function AddExpense({show, handleClose}) {
     <div className={`form__container container center ${show ? "show" : "hide"}`}>
         <form className='form'>
             <div className="form__heading flex">
-                <h3 className="form__heading-title">Новая расход</h3>
-                <button onClick={handleClose} className="form__heading-btn close-btn">
+                <h3 className="form__heading-title">Новый расход</h3>
+                <button onClick={() => handleClose()} className="form__heading-btn close-btn">
                 <AiOutlineClose/>
                 </button>
             </div>
