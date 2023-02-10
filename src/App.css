@@ -92,6 +92,12 @@ ul {
     background-color: var(--first-color-gray);
     border: 1px solid var(--first-color);
 }
+.close-btn {
+    border: none;
+    font-size: 1.5rem;
+    background: inherit;
+    cursor: pointer;
+}
 
 /* ===============-HEADER-=========================== */
 .heading {
@@ -159,11 +165,6 @@ ul {
 .form__heading-title {
     font-size: 1.5rem;
 }
-.close-btn {
-    border: none;
-    font-size: 1.5rem;
-    background: inherit;
-}
 .form__body-box {
     display: flex;
     flex-direction: column;
@@ -178,6 +179,25 @@ ul {
     border-radius: 0.45rem;
     border-color: var(--first-color-gray);
     background-color: inherit;
+}
+/* ===============-EXPENSE-=========================== */
+.form__body-expense {
+    padding: 1rem;
+}
+.expense__info {
+    padding: 5px 0;
+    justify-content: space-between;
+}
+.expense__info-name {
+    width: 320px;
+}
+.clear__btn{
+    font-size: 1rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #f30000;
+    border: 1px solid;
 }
 /* ===============-RESPONSIVE-=========================== */
 @media screen and (max-width: 1150px) {

@@ -1,6 +1,7 @@
 import React from 'react'
 import AddAccount from './AddAccount'
 import AddExpense from './AddExpense'
+import ViewExpense from './ViewExpense'
 
 function Main() {
   return (
@@ -57,6 +58,7 @@ function Main() {
             </div>
             <AddAccount/>
             <AddExpense/>
+            <ViewExpense />
          </section>
     </main>
   )
