@@ -155,7 +155,7 @@ ul {
 /* ===============-ADD ACCOUNT-=========================== */
 .form__container {
     display: none;
-    width: 500px;
+    width: clamp(18.125rem, 13.352rem + 23.86vw, 31.25rem);
     position: relative;
     background-color: var(--body-color);
     border-radius: 0.75rem;
@@ -193,9 +193,10 @@ ul {
 .expense__info {
     padding: 5px 0;
     justify-content: space-between;
+    gap: 1rem;
 }
 .expense__info-name {
-    width: 320px;
+    width: clamp(14.063rem, 11.903rem + 10.8vw, 20rem);
 }
 .clear__btn{
     font-size: 1rem;
@@ -224,5 +225,16 @@ ul {
     }
     .heading__title {
         font-size: 1.35rem;
+    }
+    .form,
+    .form__body-expense {
+        padding: 1rem;
+    }
+    .close-btn,
+    .form__heading-title {
+        font-size: 1rem;
+    }
+    .expense__info {
+        flex-wrap: wrap;
     }
 }
