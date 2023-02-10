@@ -1,62 +1,60 @@
 import React from 'react'
+import AddAccount from './AddAccount'
 
 function Main() {
   return (
-    <main class="main">
-         <section class="account section">
-            <div class="card container grid">
-                <div class="card__body">
-                    <div class="card__body-header flex">
-                        <h4 class="card__body-title">Всего:</h4>
-                        <div class="card__body-stat">
-                            200 <span class="card__body-probability"> / 7800</span>
+    <main className="main">
+         <section className="account section">
+            <div className="card container grid">
+                <div className="card__body">
+                    <div className="card__body-header flex">
+                        <h4 className="card__body-title">Всего:</h4>
+                        <div className="card__body-stat">
+                            200 <span className="card__body-probability"> / 7800</span>
                         </div>
                     </div>
-                    <div class="card__body-progress flex">
-                        <div class="card__body-progressbar">
+                    <div className="card__body-progress flex">
+                        <div className="card__body-progressbar">
 
                         </div>
-                    </div>
-                    <div class="card__body-btn flex">
-                        <button class="card__body-add btn">Добавить</button>
-                        <button class="card__body-see btn">Посмотреть</button>
                     </div>
                 </div>
-                <div class="card__body">
-                    <div class="card__body-header flex">
-                        <h4 class="card__body-title">Всего:</h4>
-                        <div class="card__body-stat">
-                            200 <span class="card__body-probability"> / 7800</span>
+                <div className="card__body">
+                    <div className="card__body-header flex">
+                        <h4 className="card__body-title">Обязательные:</h4>
+                        <div className="card__body-stat">
+                            200 <span className="card__body-probability"> / 7800</span>
                         </div>
                     </div>
-                    <div class="card__body-progress flex">
-                        <div class="card__body-progressbar">
+                    <div className="card__body-progress flex">
+                        <div className="card__body-progressbar">
 
                         </div>
                     </div>
-                    <div class="card__body-btn flex">
-                        <button class="card__body-add btn">Добавить</button>
-                        <button class="card__body-see btn">Посмотреть</button>
+                    <div className="card__body-btn flex">
+                        <button className="card__body-add btn">Добавить</button>
+                        <button className="card__body-see btn">Посмотреть</button>
                     </div>
                 </div>
-                <div class="card__body">
-                    <div class="card__body-header flex">
-                        <h4 class="card__body-title">Всего:</h4>
-                        <div class="card__body-stat">
-                            200 <span class="card__body-probability"> / 7800</span>
+                <div className="card__body">
+                    <div className="card__body-header flex">
+                        <h4 className="card__body-title">Продукты:</h4>
+                        <div className="card__body-stat">
+                            200 <span className="card__body-probability"> / 7800</span>
                         </div>
                     </div>
-                    <div class="card__body-progress flex">
-                        <div class="card__body-progressbar">
+                    <div className="card__body-progress flex">
+                        <div className="card__body-progressbar">
 
                         </div>
                     </div>
-                    <div class="card__body-btn flex">
-                        <button class="card__body-add btn">Добавить</button>
-                        <button class="card__body-see btn">Посмотреть</button>
+                    <div className="card__body-btn flex">
+                        <button className="card__body-add btn">Добавить</button>
+                        <button className="card__body-see btn">Посмотреть</button>
                     </div>
                 </div>
             </div>
+            <AddAccount/>
          </section>
     </main>
   )
