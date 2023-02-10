@@ -1,5 +1,6 @@
 import React from 'react'
 import AddAccount from './AddAccount'
+import AddExpense from './AddExpense'
 
 function Main() {
   return (
@@ -55,6 +56,7 @@ function Main() {
                 </div>
             </div>
             <AddAccount/>
+            <AddExpense/>
          </section>
     </main>
   )
