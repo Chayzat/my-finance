@@ -1,10 +1,24 @@
-import React from 'react'
+import React, {useState} from 'react'
 import AddAccount from './AddAccount'
 import AddExpense from './AddExpense'
 import ViewExpense from './ViewExpense'
 
 function Main() {
+      const [showAddAccount, setShowAddAccount] = useState(false)
+      const [showAddExpense, setShowAddExpense] = useState(false)
+      const [showViewExpense, setViewExpense] = useState(false)
+
   return (
+    <>
+    <header className="header" id="header">
+        <div className="heading container flex">
+            <h1 className="heading__title">Мои финансы</h1>
+            <button className="heading__btn btn" show={showAddAccount}
+            onClick={() => setShowAddAccount(true)}
+            >Добавить</button>
+        </div>
+    </header>
+
     <main className="main">
          <section className="account section">
             <div className="card container grid">
@@ -34,8 +48,12 @@ function Main() {
                         </div>
                     </div>
                     <div className="card__body-btn flex">
-                        <button className="card__body-add btn">Добавить</button>
-                        <button className="card__body-see btn">Посмотреть</button>
+                        <button className="card__body-add btn"
+                        onClick={() => setShowAddExpense(true)}
+                        >Добавить</button>
+                        <button className="card__body-see btn"
+                        onClick={() => setViewExpense(true)}
+                        >Посмотреть</button>
                     </div>
                 </div>
                 <div className="card__body">
@@ -56,11 +74,12 @@ function Main() {
                     </div>
                 </div>
             </div>
-            <AddAccount/>
-            <AddExpense/>
-            <ViewExpense />
+            <AddAccount show={showAddAccount}  handleClose={() => setShowAddAccount(false)}/>
+            <AddExpense show={showAddExpense}  handleClose={() => setShowAddExpense(false)}/>
+            <ViewExpense show={showViewExpense}  handleClose={() => showViewExpense(false)} />
          </section>
     </main>
+    </>
   )
 }
 

@@ -1,9 +1,9 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 
-function ViewExpense() {
+function ViewExpense({show, handleClose}) {
   return (
-    <div className="form__container container center">
+    <div className={`form__container container center ${show ? "show" : "hide"}`}>
       <form className="form">
         <div className="form__heading flex">
           <h3 className="form__heading-title">{"Расходы"}</h3>
@@ -16,7 +16,7 @@ function ViewExpense() {
             <div className="expense__info flex">
                 <p className="expense__info-name">Lorem, ipsum dolor.</p>
                 <span className="expense__info-sum">10p</span>
-                <button className="close-btn clear__btn"><AiOutlineClose /></button>
+                <button className="close-btn clear__btn" onClick={handleClose}><AiOutlineClose /></button>
             </div>
             <div className="expense__info flex">
                 <p className="expense__info-name">Lorem, ipsum dolor.</p>
