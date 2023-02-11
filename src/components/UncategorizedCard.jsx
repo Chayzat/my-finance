@@ -9,7 +9,7 @@ function UncategorizedCard(props) {
     )
     if (amount === 0) return null
   return (
-    <Card amount={amount} name="Прочее" {...props}/>
+    <Card amount={amount} name="Прочее" {...props} hideButton/>
   )
 }
 
