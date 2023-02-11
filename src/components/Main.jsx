@@ -1,22 +1,26 @@
 import React, { useState } from "react";
-import { useAccount } from "../context/AccountContext";
+import { UNCATEGORIZED_ID, useAccount } from "../context/AccountContext";
 import AddAccount from "./AddAccount";
 import AddExpense from "./AddExpense";
 import Card from "./Card";
 import TotalCard from "./TotalCard";
+import UncategorizedCard from "./UncategorizedCard";
 import ViewExpense from "./ViewExpense";
 
 function Main() {
   const [showAddAccount, setShowAddAccount] = useState(false);
   const [showAddExpense, setShowAddExpense] = useState(false);
-  const [showViewExpense, setViewExpense] = useState(false);
-  const [viewExpensesAccountId, setViewExpensesAccountId] = useState()
+
+  const [viewExpensesId, setViewExpensesId] = useState()
+
+  const [addExpenseId, setAddExpenseId] = useState()
+
   const {accounts, getAccountExpenses} = useAccount()
 
-  const onHandleClose = (e) => {
-    e.preventDefault();
-    setViewExpense(false);
-  };
+  const showAddExpenseModal = (accountId) => {
+    setShowAddExpense(true)
+    setAddExpenseId(accountId)
+  }
 
   return (
     <>
@@ -37,6 +41,7 @@ function Main() {
           <div className="card container grid">
             <TotalCard />
             {accounts.map(account => {
+              console.log(account.id)
               const amount = getAccountExpenses(account.id).reduce(
                 (total, expense) => total + expense.amount, 0
               )
@@ -46,9 +51,15 @@ function Main() {
                 name={account.name}
                 amount={amount}
                 max={account.max}
+                onAddExpenseClick={() => showAddExpenseModal(account.id)}
+                onViewExpensesClick={() => setViewExpensesId(account.id)}
                 />
               )
             })}
+            <UncategorizedCard
+            onAddExpenseClick={showAddExpenseModal}
+            onViewExpensesClick={() => setViewExpensesId(UNCATEGORIZED_ID)}
+            />
           </div>
         </section>
         <AddAccount
@@ -56,11 +67,14 @@ function Main() {
             handleClose={() => setShowAddAccount(false)}
           />
           <AddExpense
-          defaultAccountId={viewExpensesAccountId}
+          defaultAccountId={addExpenseId}
             show={showAddExpense}
             handleClose={() => setShowAddExpense(false)}
           />
-          <ViewExpense accountId={viewExpensesAccountId} show={showViewExpense} handleClose={onHandleClose} />
+          <ViewExpense
+          accountId={viewExpensesId}
+          handleClose={() => setViewExpensesId()}
+           />
       </main>
     </>
   );

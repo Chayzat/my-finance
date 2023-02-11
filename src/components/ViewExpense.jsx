@@ -3,14 +3,16 @@ import { AiOutlineClose } from "react-icons/ai";
 import { UNCATEGORIZED_ID, useAccount } from "../context/AccountContext";
 import { currencyFormatter } from "../utils";
 
-function ViewExpense({ accountId, show, handleClose }) {
-  const {getAccountExpenses, accounts, deleteAccount, deleteExpense} = useAccount()
-  const expenses = getAccountExpenses(accountId)
+function ViewExpense({ accountId, handleClose }) {
+  const { getAccountExpenses, accounts, deleteAccount, deleteExpenses } =
+    useAccount();
+  const expenses = getAccountExpenses(accountId);
 
-  const account = UNCATEGORIZED_ID === accountId
-  ? {name: 'Uncategorized', id: UNCATEGORIZED_ID}
-  : accounts.find(b => b.id === accountId)
-
+  const account =
+    UNCATEGORIZED_ID === accountId
+      ? { name: "Прочее", id: UNCATEGORIZED_ID }
+      : accounts.find((b) => b.id === accountId);
+  const show = accountId != null;
   return (
     <div className={`wrapper ${show ? "show" : "hide"}`}>
       <div
@@ -28,31 +30,33 @@ function ViewExpense({ accountId, show, handleClose }) {
           </div>
           <div className="form__body">
             <div className="form__body-expense">
-              {expenses.map(expense => (
+              {expenses.map((expense) => (
                 <div className="expense__info flex" key={expense.id}>
-                <p className="expense__info-name">
-                  {expense.description}
-                </p>
-                <span className="expense__info-sum">
-                  {currencyFormatter.format(expense.amount)}
-                </span>
-                <button
-                className="close-btn clear__btn"
-                onClick={() => deleteExpense(expense)}
-                >
-                  <AiOutlineClose />
-                </button>
-              </div>
+                  <p className="expense__info-name">{expense.description}</p>
+                  <span className="expense__info-sum">
+                    {currencyFormatter.format(expense.amount)}
+                  </span>
+                  <button
+                    className="close-btn clear__btn"
+                    onClick={() => {
+                      deleteExpenses(expense);
+                    }}
+                  >
+                    <AiOutlineClose />
+                  </button>
+                </div>
               ))}
             </div>
             <div className="form__body-btn">
               <button
-              className="delete__btn btn"
-              onClick={() => {
-                deleteAccount(account)
-                handleClose()
-              }}
-              >Удалить</button>
+                className="delete__btn btn"
+                onClick={() => {
+                  deleteAccount(account);
+                  handleClose();
+                }}
+              >
+                Удалить
+              </button>
             </div>
           </div>
         </form>

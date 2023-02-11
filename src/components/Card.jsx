@@ -9,12 +9,12 @@ const getProgressBar = (amount, max) => {
 }
 
 function Card({
-  onSetShowAddExpense,
-  onSetViewExpense,
   hideButtons,
   name,
   amount,
-  max
+  max,
+  onAddExpenseClick,
+  onViewExpensesClick
 }) {
   const classNames = []
   if (amount > max) {
@@ -46,13 +46,13 @@ function Card({
         <div className="card__body-btn flex">
         <button
           className="card__body-add btn"
-          onClick={onSetShowAddExpense}
+          onClick={onAddExpenseClick}
         >
           Добавить
         </button>
         <button
           className="card__body-see btn"
-          onClick={onSetViewExpense}
+          onClick={onViewExpensesClick}
         >
           Посмотреть
         </button>

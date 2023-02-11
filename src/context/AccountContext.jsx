@@ -4,7 +4,7 @@ import { v4 as uuidV4 } from "uuid";
 
 const AccountContext = React.createContext();
 
-export const UNCATEGORIZED_ID = "Uncategorized";
+export const UNCATEGORIZED_ID = "Прочее";
 
 export function useAccount() {
   return useContext(AccountContext);

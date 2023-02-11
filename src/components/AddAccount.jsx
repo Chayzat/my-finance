@@ -13,6 +13,7 @@ function AddAccount({ show, handleClose }) {
       max: parseFloat(maxRef.current.value),
     });
   };
+  // const showModal = {show ? value : undefined}
   return (
     <div className={`wrapper ${show ? "show" : "hide"}`}>
       <div
