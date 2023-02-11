@@ -13,7 +13,6 @@ function AddAccount({ show, handleClose }) {
       max: parseFloat(maxRef.current.value),
     });
   };
-  // const showModal = {show ? value : undefined}
   return (
     <div className={`wrapper ${show ? "show" : "hide"}`}>
       <div
@@ -31,7 +30,7 @@ function AddAccount({ show, handleClose }) {
           </div>
           <div className="form__body">
             <div className="form__body-box">
-              <label htmlFor="name">Название</label>
+              <label>Название</label>
               <input
               ref={nameRef}
                 type={"text"}
@@ -41,7 +40,7 @@ function AddAccount({ show, handleClose }) {
               />
             </div>
             <div className="form__body-box">
-              <label htmlFor="max">Максимальная сумма</label>
+              <label>Максимальная сумма</label>
               <input
               ref={maxRef}
                 type={"number"}

@@ -70,5 +70,3 @@ export const AccountProvider = ({ children }) => {
     </AccountContext.Provider>
   );
 }
-
-// export default AccountProvider;

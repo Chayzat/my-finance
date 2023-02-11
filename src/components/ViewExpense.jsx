@@ -12,6 +12,7 @@ function ViewExpense({ accountId, handleClose }) {
     UNCATEGORIZED_ID === accountId
       ? { name: "Прочее", id: UNCATEGORIZED_ID }
       : accounts.find((b) => b.id === accountId);
+
   const show = accountId != null;
   return (
     <div className={`wrapper ${show ? "show" : "hide"}`}>

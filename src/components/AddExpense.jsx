@@ -34,7 +34,7 @@ function AddExpense({ show, handleClose, defaultAccountId }) {
           </div>
           <div className="form__body">
             <div className="form__body-box">
-              <label htmlFor="name">Описание</label>
+              <label>Описание</label>
               <input
                 ref={descRef}
                 type={"text"}
@@ -43,7 +43,7 @@ function AddExpense({ show, handleClose, defaultAccountId }) {
               />
             </div>
             <div className="form__body-box">
-              <label htmlFor="amount">Сумма</label>
+              <label>Сумма</label>
               <input
                 ref={amountRef}
                 type={"number"}
@@ -54,7 +54,7 @@ function AddExpense({ show, handleClose, defaultAccountId }) {
               />
             </div>
             <div className="form__body-box">
-              <label htmlFor="accountId">Категория</label>
+              <label>Категория</label>
               <select
                 className="form__body-control"
                 defaultValue={defaultAccountId}

@@ -12,7 +12,6 @@ function Main() {
   const [showAddExpense, setShowAddExpense] = useState(false);
 
   const [viewExpensesId, setViewExpensesId] = useState()
-
   const [addExpenseId, setAddExpenseId] = useState()
 
   const {accounts, getAccountExpenses} = useAccount()
