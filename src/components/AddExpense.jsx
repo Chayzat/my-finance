@@ -8,6 +8,12 @@ function AddExpense({ show, handleClose, defaultAccountId }) {
   const accountIdRef = useRef();
   const { addExpense, accounts } = useAccount();
 
+  const handleClear = () => {
+    descRef.current.value = ''
+    amountRef.current.value = ''
+    accountIdRef.current.value = ''
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     addExpense({
@@ -16,7 +22,9 @@ function AddExpense({ show, handleClose, defaultAccountId }) {
       accountId: accountIdRef.current.value,
     });
     handleClose();
+    handleClear()
   };
+
   return (
     <div className={`wrapper ${show ? "show" : "hide"}`}>
       <div

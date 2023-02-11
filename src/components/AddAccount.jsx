@@ -6,12 +6,20 @@ function AddAccount({ show, handleClose }) {
   const nameRef = useRef();
   const maxRef = useRef();
   const { addAccount } = useAccount();
+
+  const handleClear = () => {
+    nameRef.current.value = ''
+    maxRef.current.value = ''
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     addAccount({
       name: nameRef.current.value,
       max: parseFloat(maxRef.current.value),
     });
+    handleClose()
+    handleClear()
   };
   return (
     <div className={`wrapper ${show ? "show" : "hide"}`}>

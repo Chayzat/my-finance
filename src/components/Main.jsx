@@ -40,7 +40,6 @@ function Main() {
           <div className="card container grid">
             <TotalCard />
             {accounts.map(account => {
-              console.log(account.id)
               const amount = getAccountExpenses(account.id).reduce(
                 (total, expense) => total + expense.amount, 0
               )

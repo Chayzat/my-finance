@@ -20,11 +20,6 @@ function Card({
   onAddExpenseClick,
   onViewExpensesClick
 }) {
-  const classNames = []
-  if (amount > max) {
-    classNames.push('danger')
-  }
-
   const progress = (amount / max) *100
   return (
     <div className="card__body">
