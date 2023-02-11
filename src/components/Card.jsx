@@ -1,17 +1,47 @@
 import React from "react";
+import {currencyFormatter} from '../utils'
 
-function Card({onSetShowAddExpense, onSetViewExpense, hideButtons}) {
+const getProgressBar = (amount, max) => {
+  const ratio = amount / max
+  if (ratio < 0.5) return 'primary'
+  if (ratio < 0.75) return 'warning'
+  return 'danger'
+}
+
+function Card({
+  onSetShowAddExpense,
+  onSetViewExpense,
+  hideButtons,
+  name,
+  amount,
+  max
+}) {
+  const classNames = []
+  if (amount > max) {
+    classNames.push('danger')
+  }
   return (
     <div className="card__body">
       <div className="card__body-header flex">
-        <h4 className="card__body-title">Обязательные:</h4>
+        <h4 className="card__body-title">{name}</h4>
         <div className="card__body-stat">
-          200 <span className="card__body-probability"> / 7800</span>
+          {currencyFormatter.format(amount)}
+          {max && (
+            <span className="card__body-probability"> / {currencyFormatter.format(max)}
+            </span>
+          )}
         </div>
       </div>
-      <div className="card__body-progress flex">
-        <div className="card__body-progressbar"></div>
+      {max && (
+        <div className="card__body-progress flex">
+        <div className={`card__body-progressbar ${classNames}`}
+        variant={getProgressBar(amount, max)}
+        min={0}
+        max={max}
+        now={amount}
+        ></div>
       </div>
+      )}
       {!hideButtons && (
         <div className="card__body-btn flex">
         <button
