@@ -1,16 +1,21 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useAccount } from "../context/AccountContext";
 
-function AddAccount({ show, handleClose }) {
+function AddAccount({ show, handleClose, onAutoFocus }) {
   const nameRef = useRef();
   const maxRef = useRef();
   const { addAccount } = useAccount();
 
   const handleClear = () => {
-    nameRef.current.value = ''
-    maxRef.current.value = ''
-  }
+    nameRef.current.value = "";
+    maxRef.current.value = "";
+  };
+
+  useEffect(() => {
+    nameRef.current.focus()
+  }, [])
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,8 +23,8 @@ function AddAccount({ show, handleClose }) {
       name: nameRef.current.value,
       max: parseFloat(maxRef.current.value),
     });
-    handleClose()
-    handleClear()
+    handleClose();
+    handleClear();
   };
   return (
     <div className={`wrapper ${show ? "show" : "hide"}`}>
@@ -40,8 +45,9 @@ function AddAccount({ show, handleClose }) {
             <div className="form__body-box">
               <label>Название</label>
               <input
-              ref={nameRef}
+                ref={nameRef}
                 type={"text"}
+                name="account"
                 id="name"
                 className="form__body-control"
                 required
@@ -50,7 +56,7 @@ function AddAccount({ show, handleClose }) {
             <div className="form__body-box">
               <label>Максимальная сумма</label>
               <input
-              ref={maxRef}
+                ref={maxRef}
                 type={"number"}
                 id="max"
                 min={"0"}
@@ -60,7 +66,9 @@ function AddAccount({ show, handleClose }) {
               />
             </div>
             <div className="form__body-btn">
-              <button type="submit" className="btn">Добавить</button>
+              <button type="submit" className="btn">
+                Добавить
+              </button>
             </div>
           </div>
         </form>

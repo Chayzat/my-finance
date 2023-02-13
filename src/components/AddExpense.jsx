@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect} from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { UNCATEGORIZED_ID, useAccount } from "../context/AccountContext";
 
@@ -11,8 +11,11 @@ function AddExpense({ show, handleClose, defaultAccountId }) {
   const handleClear = () => {
     descRef.current.value = ''
     amountRef.current.value = ''
-    accountIdRef.current.value = ''
   }
+
+  useEffect(() => {
+    descRef.current.focus()
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +27,6 @@ function AddExpense({ show, handleClose, defaultAccountId }) {
     handleClose();
     handleClear()
   };
-
   return (
     <div className={`wrapper ${show ? "show" : "hide"}`}>
       <div
@@ -45,6 +47,7 @@ function AddExpense({ show, handleClose, defaultAccountId }) {
               <label>Описание</label>
               <input
                 ref={descRef}
+                name="description"
                 type={"text"}
                 className="form__body-control"
                 required

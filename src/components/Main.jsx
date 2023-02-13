@@ -20,7 +20,6 @@ function Main() {
     setShowAddExpense(true)
     setAddExpenseId(accountId)
   }
-
   return (
     <>
       <header className="header" id="header">
