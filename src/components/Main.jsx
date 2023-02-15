@@ -11,19 +11,21 @@ function Main() {
   const [showAddAccount, setShowAddAccount] = useState(false);
   const [showAddExpense, setShowAddExpense] = useState(false);
 
-  const [viewExpensesId, setViewExpensesId] = useState()
-  const [addExpenseId, setAddExpenseId] = useState()
+  const [viewExpensesId, setViewExpensesId] = useState();
+  const [addExpenseId, setAddExpenseId] = useState();
 
-  const {accounts, getAccountExpenses} = useAccount()
+  const { accounts, getAccountExpenses } = useAccount();
+
+  console.log(accounts);
 
   const showAddExpenseModal = (accountId) => {
-    setShowAddExpense(true)
-    setAddExpenseId(accountId)
-  }
+    setShowAddExpense(true);
+    setAddExpenseId(accountId);
+  };
   return (
     <>
       <header className="header" id="header">
-        <div  className="heading container flex">
+        <div className="heading container flex">
           <h1 className="heading__title">Мои финансы</h1>
           <button
             className="heading__btn btn"
@@ -36,42 +38,47 @@ function Main() {
       </header>
       <main className="main">
         <section className="account section">
-          <div className="card container grid">
-            <TotalCard />
-            {accounts.map(account => {
-              const amount = getAccountExpenses(account.id).reduce(
-                (total, expense) => total + expense.amount, 0
-              )
-              return (
-                <Card
-                key={account.id}
-                name={account.name}
-                amount={amount}
-                max={account.max}
-                onAddExpenseClick={() => showAddExpenseModal(account.id)}
-                onViewExpensesClick={() => setViewExpensesId(account.id)}
-                />
-              )
-            })}
-            <UncategorizedCard
-            onAddExpenseClick={showAddExpenseModal}
-            onViewExpensesClick={() => setViewExpensesId(UNCATEGORIZED_ID)}
-            />
-          </div>
+          {accounts.length > 0 ? (
+            <div className="card container grid">
+              <TotalCard />
+              {accounts.map((account) => {
+                const amount = getAccountExpenses(account.id).reduce(
+                  (total, expense) => total + expense.amount,
+                  0
+                );
+                return (
+                  <Card
+                    key={account.id}
+                    name={account.name}
+                    amount={amount}
+                    max={account.max}
+                    onAddExpenseClick={() => showAddExpenseModal(account.id)}
+                    onViewExpensesClick={() => setViewExpensesId(account.id)}
+                  />
+                );
+              })}
+              <UncategorizedCard
+                onAddExpenseClick={showAddExpenseModal}
+                onViewExpensesClick={() => setViewExpensesId(UNCATEGORIZED_ID)}
+              />
+            </div>
+          ) : (
+            <div className="empty flex">Добавьте расходы</div>
+          )}
         </section>
         <AddAccount
-            show={showAddAccount}
-            handleClose={() => setShowAddAccount(false)}
-          />
-          <AddExpense
+          show={showAddAccount}
+          handleClose={() => setShowAddAccount(false)}
+        />
+        <AddExpense
           defaultAccountId={addExpenseId}
-            show={showAddExpense}
-            handleClose={() => setShowAddExpense(false)}
-          />
-          <ViewExpense
+          show={showAddExpense}
+          handleClose={() => setShowAddExpense(false)}
+        />
+        <ViewExpense
           accountId={viewExpensesId}
           handleClose={() => setViewExpensesId()}
-           />
+        />
       </main>
     </>
   );
