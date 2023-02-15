@@ -70,7 +70,6 @@ function Main() {
           />
           <ViewExpense
           accountId={viewExpensesId}
-          hideButton
           handleClose={() => setViewExpensesId()}
            />
       </main>

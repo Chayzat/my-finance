@@ -3,7 +3,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { UNCATEGORIZED_ID, useAccount } from "../context/AccountContext";
 import { currencyFormatter } from "../utils";
 
-function ViewExpense({ accountId, handleClose, hideButton }) {
+function ViewExpense({ accountId, handleClose }) {
   const { getAccountExpenses, accounts, deleteAccount, deleteExpenses } =
     useAccount();
   const expenses = getAccountExpenses(accountId);
@@ -48,7 +48,7 @@ function ViewExpense({ accountId, handleClose, hideButton }) {
                 </div>
               ))}
             </div>
-            {!hideButton && (
+            {/* {!hideButton && ( */}
               <div className="form__body-btn">
               <button
                 className="delete__btn btn"
@@ -60,7 +60,7 @@ function ViewExpense({ accountId, handleClose, hideButton }) {
                 Удалить
               </button>
             </div>
-            )}
+            {/* )} */}
           </div>
         </form>
       </div>
