@@ -5,7 +5,10 @@ import Card from './Card'
 function UncategorizedCard(props) {
     const {getAccountExpenses} = useAccount()
     const amount = getAccountExpenses(UNCATEGORIZED_ID).reduce(
-        (total, expense) => total + expense.amount, 0
+        (total, expense) => {
+          // console.log(expense.amount, total)
+          return total + expense.amount
+        }, 0
     )
     if (amount === 0) return null
   return (

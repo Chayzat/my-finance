@@ -6,6 +6,7 @@ import Card from "./Card";
 import TotalCard from "./TotalCard";
 import UncategorizedCard from "./UncategorizedCard";
 import ViewExpense from "./ViewExpense";
+import emptyPage from '../assets/empty.svg'
 
 function Main() {
   const [showAddAccount, setShowAddAccount] = useState(false);
@@ -15,8 +16,6 @@ function Main() {
   const [addExpenseId, setAddExpenseId] = useState();
 
   const { accounts, getAccountExpenses } = useAccount();
-
-  console.log(accounts);
 
   const showAddExpenseModal = (accountId) => {
     setShowAddExpense(true);
@@ -63,7 +62,12 @@ function Main() {
               />
             </div>
           ) : (
-            <div className="empty flex">Добавьте расходы</div>
+            <div  className="empty-page">
+              <div className="empty flex">
+              <img src={emptyPage} alt="empty page" />
+              </div>
+              <p>Здесь пусто...</p>
+            </div>
           )}
         </section>
         <AddAccount

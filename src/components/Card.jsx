@@ -18,11 +18,13 @@ function Card({
   amount,
   max,
   onAddExpenseClick,
-  onViewExpensesClick
+  onViewExpensesClick,
+  backColor
 }) {
   const progress = (amount / max) *100
+  //TODO: пофиксить - неправильно выводит amount
   return (
-    <div className="card__body">
+    <div className={`card__body ${backColor}`}>
       <div className="card__body-header flex">
         <h4 className="card__body-title">{name}</h4>
         <div className="card__body-stat">
