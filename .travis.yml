@@ -13,7 +13,7 @@ script:
 
 deploy:
   provider: pages
-  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  github-token: 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  # Set in the settings page of your repository, as a secure variable
   committer-from-gh: true
   skip-cleanup: true
   keep-history: true
